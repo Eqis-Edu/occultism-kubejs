@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [release/v1.21-1.0.4] - 2024-07-23
+### :bug: Bug Fixes
+- [`2b2d10e`](https://github.com/klikli-dev/occultism-kubejs/commit/2b2d10efe08ab84403b57c366208e4746f816894) - remove forge from compat tags *(commit by [@klikli-dev](https://github.com/klikli-dev))*
+
+
 ## [release/v1.21-1.0.2] - 2024-07-23
 ### :bug: Bug Fixes
 - [`f25e4ba`](https://github.com/klikli-dev/occultism-kubejs/commit/f25e4bad6b73575e16d70ff237a245a0bb19e652) - remove outdated gradle task *(commit by [@klikli-dev](https://github.com/klikli-dev))*
@@ -20,3 +25,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [release/v1.20.1-1.0.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.20.1-0.0.0...release/v1.20.1-1.0.0
 [release/v1.21-1.0.2]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21-1.0.1...release/v1.21-1.0.2
+[release/v1.21-1.0.4]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21-1.0.3...release/v1.21-1.0.4
