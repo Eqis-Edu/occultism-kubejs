@@ -83,6 +83,13 @@ repositories {
 		}
 	}
 	maven {
+		name = "OctoStudios (Curios Api Contiunation)"
+		url = uri("https://maven.octo-studios.com/releases")
+		content {
+			includeGroup "top.theillusivec4.curios"
+		}
+	}
+	maven {
 		// Shedaniel's maven (Architectury API)
 		url = "https://maven.architectury.dev"
 		content {
