@@ -102,6 +102,28 @@ repositories {
 		url = "https://maven.saps.dev/releases"
 		content {
 			includeGroup "dev.latvian.mods"
+			includeGroup "dev.latvian.apps"
+		}
+	}
+	maven {
+		//used by kubejs
+		url 'https://jitpack.io'
+		content {
+			includeGroup "com.github.rtyley"
+		}
+	}
+
+	maven {
+		url "https://cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+	maven {
+		name = "TerraformersMC (emi)"
+		url = "https://maven.terraformersmc.com/"
+		content {
+			includeGroup "dev.emi"
 		}
 	}
 	maven {
