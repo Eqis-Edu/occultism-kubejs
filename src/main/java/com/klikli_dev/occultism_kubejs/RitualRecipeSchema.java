@@ -1,5 +1,6 @@
 package com.klikli_dev.occultism_kubejs;
 
+import com.klikli_dev.occultism.crafting.recipe.RitualRecipe;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
 import dev.latvian.mods.kubejs.recipe.component.*;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
@@ -30,11 +31,7 @@ public interface RitualRecipeSchema {
             .optional(new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("occultism:ritual_dummy/custom_ritual"))))
             .alwaysWrite();
 
-    RecipeKey<?> ENTITY_TO_SACRIFICE =
-            RecipeComponent.builder(
-                            new RecipeComponentBuilder.Key("tag", TagKeyComponent.ENTITY_TYPE),
-                            new RecipeComponentBuilder.Key("display_name", StringComponent.ANY)
-                    )
+    RecipeKey<RitualRecipe.EntityToSacrifice> ENTITY_TO_SACRIFICE = EntityToSacrificeComponent.ENTITY_TO_SACRIFICE
                     .inputKey("entity_to_sacrifice").alt("entityToSacrifice").alt("sacrifice")
                     .defaultOptional();
     RecipeKey<Ingredient> ITEM_TO_USE = IngredientComponent.INGREDIENT.inputKey("item_to_use")

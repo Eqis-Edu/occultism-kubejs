@@ -111,7 +111,7 @@
     {
       "name": "entity_to_sacrifice",
       "role": "input",
-      "type": "{tag: entity_type_tag, display_name: string}",
+      "type": "occultism:entity_to_sacrifice",
       "optional": null,
       "alternative_names": [
         "entityToSacrifice",

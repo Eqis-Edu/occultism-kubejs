@@ -27,5 +27,7 @@ ServerEvents.recipes((event) => {
         ],
         '#c:stones',
         'occultism:craft_afrit'
-    ).dummy("kubejs:dummy_ritual_thing").useItem('minecraft:egg')
+    ).dummy("kubejs:dummy_ritual_thing")
+        .useItem('minecraft:egg')
+        .entityToSacrifice(EntityToSacrifice.of("minecraft:cows", "Cows"))//it would be better to use a translation key instead of "Cows" to allow translating to other languages. E.g. "tags.entities.cows" -> but that also needs a corresponding translation in en_us.json and other lang files.
 })

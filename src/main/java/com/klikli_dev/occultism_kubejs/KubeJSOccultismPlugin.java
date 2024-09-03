@@ -55,12 +55,14 @@ public class KubeJSOccultismPlugin implements KubeJSPlugin {
     public void registerRecipeComponents(RecipeComponentFactoryRegistry registry) {
         registry.register(RecipeResultComponent.RECIPE_RESULT);
         registry.register(WeightedRecipeResultComponent.WEIGHTED_RECIPE_RESULT);
+        registry.register(EntityToSacrificeComponent.ENTITY_TO_SACRIFICE);
     }
 
     @Override
     public void registerBindings(BindingRegistry bindings) {
         bindings.add("RecipeResult", RecipeResultWrapper.class);
         bindings.add("WeightedRecipeResult", WeightedRecipeResultWrapper.class);
+        bindings.add("EntityToSacrifice", EntityToSacrificeWrapper.class);
     }
 
     @Override
