@@ -22,9 +22,9 @@
 
 package com.klikli_dev.occultism_kubejs;
 
-import com.google.gson.JsonObject;
 import com.klikli_dev.occultism.common.item.DummyTooltipItem;
 import dev.latvian.mods.kubejs.client.LangKubeEvent;
+import dev.latvian.mods.kubejs.generator.KubeAssetGenerator;
 import dev.latvian.mods.kubejs.item.ItemBuilder;
 import dev.latvian.mods.kubejs.typings.Info;
 import net.minecraft.network.chat.Component;
@@ -42,15 +42,28 @@ public class RitualDummyItemType extends ItemBuilder {
 
         //make the item just use the ritual dummy parent mode
         //Note:  we are not using this.parentModel() because it causes textures to be overwritten with a texture location corresponding to the item id unless the correct one is manually specified again
-        var modelJson = new JsonObject();
-        modelJson.addProperty("parent", "occultism:item/ritual_dummy");
-        this.modelJson(modelJson);
+        //Note: We now use parentModel because this.itemModel is gone, instead we fix the texture issue in generateAssets
+        this.parentModel(ResourceLocation.parse("occultism:item/ritual_dummy"));
     }
 
     @Override
     public Item createObject() {
         return new DummyTooltipItem(this.createItemProperties());
     }
+
+    @Override
+    public void generateAssets(KubeAssetGenerator generator) {
+        //Copied from super, but without the textures
+        generator.itemModel(this.id, m -> {
+            m.parent(this.parentModel != null ? this.parentModel : KubeAssetGenerator.GENERATED_ITEM_MODEL);
+//            if (textures.isEmpty()) {
+//                texture(id.withPath(ID.ITEM).toString());
+//            }
+
+//            m.textures(textures);
+        });
+    }
+
 
     @Override
     public void generateLang(LangKubeEvent lang) {
