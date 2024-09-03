@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [release/v1.21.1-1.3.0] - 2024-09-03
+### :sparkles: New Features
+- [`a6e37fa`](https://github.com/klikli-dev/occultism-kubejs/commit/a6e37fa49ddcfe677ec29cef3e6eda29f64a207a) - add component type and wrapper for entity to sacrifice *(commit by [@klikli-dev](https://github.com/klikli-dev))*
+
+### :bug: Bug Fixes
+- [`88ba5ca`](https://github.com/klikli-dev/occultism-kubejs/commit/88ba5cad559a19c03b5b0709f8320ab96030465e) - changelog branch *(commit by [@klikli-dev](https://github.com/klikli-dev))*
+
+### :wrench: Chores
+- [`27fb019`](https://github.com/klikli-dev/occultism-kubejs/commit/27fb0194d7f24aadba068e036f11868ea9a53ac0) - drop dual version support *(commit by [@klikli-dev](https://github.com/klikli-dev))*
+
+
 ## [release/v1.21.1-1.2.1] - 2024-08-30
 ### :bug: Bug Fixes
 - [`0c7444b`](https://github.com/klikli-dev/occultism-kubejs/commit/0c7444b502904cfa297bf388b773a9010c5b1064) - github tag version not used in jar versioning *(commit by [@klikli-dev](https://github.com/klikli-dev))*
@@ -56,3 +67,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [release/v1.21-1.1.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21-1.0.4...release/v1.21-1.1.0
 [release/v1.21-1.2.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21-1.1.0...release/v1.21-1.2.0
 [release/v1.21.1-1.2.1]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21.1-0.0.0...release/v1.21.1-1.2.1
+[release/v1.21.1-1.3.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21.1-1.2.1...release/v1.21.1-1.3.0
