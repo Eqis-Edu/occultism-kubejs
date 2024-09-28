@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [release/v1.21.1-1.6.0] - 2024-09-28
+### :sparkles: New Features
+- [`c81bb43`](https://github.com/klikli-dev/occultism-kubejs/commit/c81bb43f31ce3b2673fec2c2d9d0e0478cb7a9f5) - update to occultism recipe runtime conditions *(commit by [@klikli-dev](https://github.com/klikli-dev))*
+
+
 ## [release/v1.21.1-1.5.0] - 2024-09-09
 ### :sparkles: New Features
 - [`0f1c8eb`](https://github.com/klikli-dev/occultism-kubejs/commit/0f1c8ebd79aaf9e2f4e7b73bd1f980632dac4719) - update to latest kubejs breaking changes *(commit by [@klikli-dev](https://github.com/klikli-dev))*
@@ -80,3 +85,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [release/v1.21.1-1.3.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21.1-1.2.1...release/v1.21.1-1.3.0
 [release/v1.21.1-1.4.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21.1-1.3.0...release/v1.21.1-1.4.0
 [release/v1.21.1-1.5.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21.1-1.4.0...release/v1.21.1-1.5.0
+[release/v1.21.1-1.6.0]: https://github.com/klikli-dev/occultism-kubejs/compare/release/v1.21.1-1.5.0...release/v1.21.1-1.6.0
