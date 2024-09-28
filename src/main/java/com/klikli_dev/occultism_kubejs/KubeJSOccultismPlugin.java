@@ -25,6 +25,7 @@ package com.klikli_dev.occultism_kubejs;
 import com.klikli_dev.occultism.crafting.recipe.result.RecipeResult;
 import com.klikli_dev.occultism.crafting.recipe.result.WeightedRecipeResult;
 import com.klikli_dev.occultism.registry.OccultismRecipes;
+import com.klikli_dev.occultism_kubejs.component.*;
 import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeComponentFactoryRegistry;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchemaRegistry;
@@ -43,12 +44,11 @@ public class KubeJSOccultismPlugin implements KubeJSPlugin {
 
     @Override
     public void registerRecipeSchemas(RecipeSchemaRegistry registry) {
-
         registry.register(OccultismRecipes.SPIRIT_FIRE.getId(), OccultismRecipeSchema.SPIRIT_FIRE);
         registry.register(OccultismRecipes.SPIRIT_TRADE.getId(), OccultismRecipeSchema.SPIRIT_TRADE);
         registry.register(OccultismRecipes.CRUSHING.getId(), OccultismRecipeSchema.CRUSHING);
         registry.register(OccultismRecipes.MINER.getId(), OccultismRecipeSchema.MINER);
-//        registry.register(OccultismRecipes.RITUAL.getId(), RitualRecipeSchema.SCHEMA); //now loaded from json
+        registry.register(OccultismRecipes.RITUAL.getId(), RitualRecipeSchema.SCHEMA); //now loaded from json
     }
 
     @Override
@@ -56,6 +56,9 @@ public class KubeJSOccultismPlugin implements KubeJSPlugin {
         registry.register(RecipeResultComponent.RECIPE_RESULT);
         registry.register(WeightedRecipeResultComponent.WEIGHTED_RECIPE_RESULT);
         registry.register(EntityToSacrificeComponent.ENTITY_TO_SACRIFICE);
+        registry.register(RitualStartSettingsComponent.RITUAL_START_SETTINGS);
+        registry.register(RitualRequirementSettingsComponent.RITUAL_REQUIREMENT_SETTINGS);
+        registry.register(EntityToSummonSettingsComponent.ENTITY_TO_SUMMON_SETTINGS);
     }
 
     @Override
@@ -63,6 +66,11 @@ public class KubeJSOccultismPlugin implements KubeJSPlugin {
         bindings.add("RecipeResult", RecipeResultWrapper.class);
         bindings.add("WeightedRecipeResult", WeightedRecipeResultWrapper.class);
         bindings.add("EntityToSacrifice", EntityToSacrificeWrapper.class);
+        bindings.add("RitualStartSettings", RitualStartSettingsWrapper.class);
+        bindings.add("RitualRequirementSettings", RitualRequirementSettingsWrapper.class);
+        bindings.add("EntityToSummonSettings", EntityToSummonSettingsWrapper.class);
+        bindings.add("EntityToSummonSettings", EntityToSummonSettingsWrapper.class);
+        bindings.add("IsInBiomeCondition", IsInBiomeConditionWrapper.class);
     }
 
     @Override

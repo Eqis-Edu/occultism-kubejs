@@ -1,4 +1,4 @@
-package com.klikli_dev.occultism_kubejs;
+package com.klikli_dev.occultism_kubejs.component;
 
 import com.klikli_dev.occultism.crafting.recipe.result.RecipeResult;
 import com.mojang.brigadier.StringReader;
@@ -11,7 +11,6 @@ import dev.latvian.mods.kubejs.util.RegistryAccessContainer;
 import dev.latvian.mods.rhino.Wrapper;
 import net.minecraft.core.component.DataComponentPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;

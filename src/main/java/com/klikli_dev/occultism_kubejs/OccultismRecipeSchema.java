@@ -2,6 +2,8 @@ package com.klikli_dev.occultism_kubejs;
 
 import com.klikli_dev.occultism.crafting.recipe.result.RecipeResult;
 import com.klikli_dev.occultism.crafting.recipe.result.WeightedRecipeResult;
+import com.klikli_dev.occultism_kubejs.component.RecipeResultComponent;
+import com.klikli_dev.occultism_kubejs.component.WeightedRecipeResultComponent;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
 import dev.latvian.mods.kubejs.recipe.component.*;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;

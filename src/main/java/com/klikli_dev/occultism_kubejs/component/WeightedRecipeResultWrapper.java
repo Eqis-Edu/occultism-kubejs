@@ -1,4 +1,4 @@
-package com.klikli_dev.occultism_kubejs;
+package com.klikli_dev.occultism_kubejs.component;
 
 import com.klikli_dev.occultism.crafting.recipe.result.WeightedRecipeResult;
 import com.mojang.brigadier.StringReader;
