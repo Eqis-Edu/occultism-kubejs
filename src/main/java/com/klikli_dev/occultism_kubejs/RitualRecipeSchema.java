@@ -1,10 +1,8 @@
 package com.klikli_dev.occultism_kubejs;
 
 import com.klikli_dev.occultism.crafting.recipe.RitualRecipe;
+import com.klikli_dev.occultism_kubejs.component.ConditionComponent;
 import com.klikli_dev.occultism_kubejs.component.EntityToSacrificeComponent;
-import com.klikli_dev.occultism_kubejs.component.EntityToSummonSettingsComponent;
-import com.klikli_dev.occultism_kubejs.component.RitualRequirementSettingsComponent;
-import com.klikli_dev.occultism_kubejs.component.RitualStartSettingsComponent;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
 import dev.latvian.mods.kubejs.recipe.component.*;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
@@ -15,28 +13,42 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.neoforged.neoforge.common.conditions.ICondition;
 
 import java.util.List;
 
 public interface RitualRecipeSchema {
+    RecipeKey<ItemStack> RESULT = ItemStackComponent.ITEM_STACK.outputKey("result").allowEmpty();
+    RecipeKey<List<Ingredient>> INGREDIENTS = IngredientComponent.INGREDIENT.asList().inputKey("ingredients");
     RecipeKey<String> RITUAL_TYPE = StringComponent.ID.inputKey("ritual_type").alt("ritualType").optional("occultism:craft").alwaysWrite();
-    RecipeKey<RitualRecipe.RitualRequirementSettings> RITUAL_REQUIREMENT_SETTINGS = RitualRequirementSettingsComponent.RITUAL_REQUIREMENT_SETTINGS.inputKey("ritual_requirement_settings").alt("ritualRequirementSettings").alwaysWrite();
-    RecipeKey<RitualRecipe.RitualStartSettings> RITUAL_START_SETTINGS = RitualStartSettingsComponent.RITUAL_START_SETTINGS.inputKey("ritual_start_settings").alt("ritualStartSettings").alwaysWrite();
-    RecipeKey<RitualRecipe.EntityToSummonSettings> ENTITY_TO_SUMMON_SETTINGS = EntityToSummonSettingsComponent.ENTITY_TO_SUMMON_SETTINGS.outputKey("entity_to_summon_settings").alt("entityToSummonSettings")
-            .defaultOptional();
+    RecipeKey<String> ENTITY_TO_SUMMON = StringComponent.ID.inputKey("entity_to_summon").alt("entityToSummon").alt("summon").defaultOptional();
+    RecipeKey<TagKey<EntityType<?>>> ENTITY_TAG_TO_SUMMON = TagKeyComponent.ENTITY_TYPE.inputKey("entity_tag_to_summon").alt("entityTagToSummon").alt("summonTag").defaultOptional();
+    RecipeKey<String> ENTITY_NBT = StringComponent.ANY.inputKey("entity_nbt").alt("entityNbt").defaultOptional();
+    RecipeKey<Ingredient> ACTIVATION_ITEM = IngredientComponent.INGREDIENT.inputKey("activation_item").alt("activationItem");
+    RecipeKey<String> PENTACLE_ID = StringComponent.ID.inputKey("pentacle_id").alt("pentacleId").alt("pentacle");
+    RecipeKey<TickDuration> DURATION = TimeComponent.TICKS.inputKey("duration").optional(TickDuration.wrap(30));
+    RecipeKey<Integer> SPIRIT_MAX_AGE = NumberComponent.INT.inputKey("spirit_max_age").alt("spiritMaxAge").alt("maxAge").optional(-1);
+    RecipeKey<String> SPIRIT_JOB_TYPE = StringComponent.ID.inputKey("spirit_job_type").alt("spiritJobType").alt("jobType").defaultOptional();
     RecipeKey<ItemStack> RITUAL_DUMMY = ItemStackComponent.ITEM_STACK.outputKey("ritual_dummy").alt("ritualDummy").alt("dummyItem").alt("dummy")
             // apparently there is never any static reference to this item, so let's just hope klikli never changes this lmao
             .optional(new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("occultism:ritual_dummy/custom_ritual"))))
             .alwaysWrite();
-    RecipeKey<ItemStack> RESULT = ItemStackComponent.ITEM_STACK.outputKey("result").allowEmpty();
+
+    RecipeKey<RitualRecipe.EntityToSacrifice> ENTITY_TO_SACRIFICE = EntityToSacrificeComponent.ENTITY_TO_SACRIFICE
+            .inputKey("entity_to_sacrifice").alt("entityToSacrifice").alt("sacrifice")
+            .defaultOptional();
+    RecipeKey<Ingredient> ITEM_TO_USE = IngredientComponent.INGREDIENT.inputKey("item_to_use")
+            .alt("itemToUse").alt("useItem").optional(Ingredient.EMPTY).allowEmpty();
     RecipeKey<String> COMMAND = StringComponent.ANY.inputKey("command").defaultOptional();
+    RecipeKey<ICondition> CONDITION = ConditionComponent.CONDITION.inputKey("condition").alt("startCondition").defaultOptional();
 
     RecipeSchema SCHEMA = new RecipeSchema(
             // all the required keys first
-            RESULT,
-            RITUAL_REQUIREMENT_SETTINGS, RITUAL_START_SETTINGS,
+            RESULT, INGREDIENTS, ACTIVATION_ITEM, PENTACLE_ID,
             // and now all the optionals...
-            ENTITY_TO_SUMMON_SETTINGS, RITUAL_DUMMY, RITUAL_TYPE, COMMAND
+            DURATION, SPIRIT_MAX_AGE, SPIRIT_JOB_TYPE, RITUAL_DUMMY, RITUAL_TYPE,
+            ENTITY_TO_SUMMON, ENTITY_TAG_TO_SUMMON, ENTITY_NBT, ENTITY_TO_SACRIFICE,
+            ITEM_TO_USE, COMMAND, CONDITION
     ).uniqueId(RITUAL_DUMMY);
 
 }

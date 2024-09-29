@@ -8,11 +8,12 @@ import dev.latvian.mods.kubejs.recipe.KubeRecipe;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponent;
 import dev.latvian.mods.rhino.Context;
 import dev.latvian.mods.rhino.type.TypeInfo;
+import net.neoforged.neoforge.common.conditions.ICondition;
 
-public record RitualStartSettingsComponent(String name, Codec<RitualRecipe.RitualStartSettings> codec) implements RecipeComponent<RitualRecipe.RitualStartSettings> {
-    public static final RecipeComponent<RitualRecipe.RitualStartSettings> RITUAL_START_SETTINGS = new RitualStartSettingsComponent("occultism:ritual_start_settings", RitualRecipe.RitualStartSettings.CODEC);
+public record ConditionComponent(String name, Codec<ICondition> codec) implements RecipeComponent<ICondition> {
+    public static final RecipeComponent<ICondition> CONDITION = new ConditionComponent("occultism:condition", ICondition.CODEC);
 
-    public static final TypeInfo TYPE_INFO = TypeInfo.of(RitualStartSettingsComponent.class);
+    public static final TypeInfo TYPE_INFO = TypeInfo.of(ConditionComponent.class);
 
     @Override
     public TypeInfo typeInfo() {
@@ -25,8 +26,8 @@ public record RitualStartSettingsComponent(String name, Codec<RitualRecipe.Ritua
     }
 
     @Override
-    public RitualRecipe.RitualStartSettings wrap(Context cx, KubeRecipe recipe, Object from) {
-        if (from instanceof RitualRecipe.RitualStartSettings k) {
+    public ICondition wrap(Context cx, KubeRecipe recipe, Object from) {
+        if (from instanceof ICondition k) {
             return k;
         }
 
@@ -34,7 +35,6 @@ public record RitualStartSettingsComponent(String name, Codec<RitualRecipe.Ritua
             return this.codec.decode(JsonOps.INSTANCE, json).result().orElseThrow().getFirst();
         }
 
-        return (RitualRecipe.RitualStartSettings) cx.jsToJava(from, this.typeInfo());
-
+        return (ICondition) cx.jsToJava(from, this.typeInfo());
     }
 }

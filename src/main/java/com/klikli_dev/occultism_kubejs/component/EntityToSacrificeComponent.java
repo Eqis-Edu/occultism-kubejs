@@ -10,7 +10,7 @@ import dev.latvian.mods.rhino.Context;
 import dev.latvian.mods.rhino.type.TypeInfo;
 
 public record EntityToSacrificeComponent(String name, Codec<RitualRecipe.EntityToSacrifice> codec) implements RecipeComponent<RitualRecipe.EntityToSacrifice> {
-    public static final RecipeComponent<RitualRecipe.EntityToSacrifice> ENTITY_TO_SACRIFICE = new EntityToSacrificeComponent("occultism:entity_to_sacrifice", RitualRecipe.EntityToSacrifice.CODEC);
+    public static final RecipeComponent<RitualRecipe.EntityToSacrifice> ENTITY_TO_SACRIFICE = new EntityToSacrificeComponent("occultism:entity_to_sacrifice", RitualRecipe.EntityToSacrifice.CODEC.codec());
 
     public static final TypeInfo TYPE_INFO = TypeInfo.of(EntityToSacrificeComponent.class);
 

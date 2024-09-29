@@ -56,9 +56,7 @@ public class KubeJSOccultismPlugin implements KubeJSPlugin {
         registry.register(RecipeResultComponent.RECIPE_RESULT);
         registry.register(WeightedRecipeResultComponent.WEIGHTED_RECIPE_RESULT);
         registry.register(EntityToSacrificeComponent.ENTITY_TO_SACRIFICE);
-        registry.register(RitualStartSettingsComponent.RITUAL_START_SETTINGS);
-        registry.register(RitualRequirementSettingsComponent.RITUAL_REQUIREMENT_SETTINGS);
-        registry.register(EntityToSummonSettingsComponent.ENTITY_TO_SUMMON_SETTINGS);
+        registry.register(ConditionComponent.CONDITION);
     }
 
     @Override
@@ -66,11 +64,11 @@ public class KubeJSOccultismPlugin implements KubeJSPlugin {
         bindings.add("RecipeResult", RecipeResultWrapper.class);
         bindings.add("WeightedRecipeResult", WeightedRecipeResultWrapper.class);
         bindings.add("EntityToSacrifice", EntityToSacrificeWrapper.class);
-        bindings.add("RitualStartSettings", RitualStartSettingsWrapper.class);
-        bindings.add("RitualRequirementSettings", RitualRequirementSettingsWrapper.class);
-        bindings.add("EntityToSummonSettings", EntityToSummonSettingsWrapper.class);
-        bindings.add("EntityToSummonSettings", EntityToSummonSettingsWrapper.class);
         bindings.add("IsInBiomeCondition", IsInBiomeConditionWrapper.class);
+        bindings.add("IsInBiomeWithTagCondition", IsInBiomeWithTagConditionWrapper.class);
+        bindings.add("IsInDimensionCondition", IsInDimensionConditionWrapper.class);
+        bindings.add("IsInDimensionTypeCondition", IsInDimensionTypeConditionWrapper.class);
+
     }
 
     @Override
