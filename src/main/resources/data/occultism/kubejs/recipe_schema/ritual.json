@@ -59,7 +59,7 @@
       "role": "output",
       "type": "item_stack",
       "optional": {
-        "id": "occultism:ritual_dummy/custom_ritual",
+        "id": "occultism:ritual_dummy/custom_ritual_misc",
         "count": 1
       },
       "alternative_names": [
