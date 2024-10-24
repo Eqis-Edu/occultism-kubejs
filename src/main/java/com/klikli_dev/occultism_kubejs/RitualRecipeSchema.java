@@ -31,7 +31,7 @@ public interface RitualRecipeSchema {
     RecipeKey<String> SPIRIT_JOB_TYPE = StringComponent.ID.inputKey("spirit_job_type").alt("spiritJobType").alt("jobType").defaultOptional();
     RecipeKey<ItemStack> RITUAL_DUMMY = ItemStackComponent.ITEM_STACK.outputKey("ritual_dummy").alt("ritualDummy").alt("dummyItem").alt("dummy")
             // apparently there is never any static reference to this item, so let's just hope klikli never changes this lmao
-            .optional(new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("occultism:ritual_dummy/custom_ritual"))))
+            .optional(new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("occultism:ritual_dummy/custom_ritual_misc"))))
             .alwaysWrite();
 
     RecipeKey<RitualRecipe.EntityToSacrifice> ENTITY_TO_SACRIFICE = EntityToSacrificeComponent.ENTITY_TO_SACRIFICE
